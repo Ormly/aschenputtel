@@ -18,9 +18,11 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
         run: |
-          pip install --upgrade pip && pip install pipenv && pipenv sync
+          pip install --upgrade pip && pip install pipenv
       - name: Test with pytest
-        run: pipenv run pytest
+        run: |
+          pipenv sync
+          pipenv run pytest
 #      - name: Upload pytest test results
 #        uses: actions/upload-artifact@v3
 #        with:
