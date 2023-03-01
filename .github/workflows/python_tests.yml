@@ -19,7 +19,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install --upgrade pip && pip install pipenv
-          pipenv install "pytest = >=7.2.0,<8"
+          pipenv install --system --deploy --ignore-pipfile
       - name: Test with pytest
         run: pipenv run pytest
 #      - name: Upload pytest test results
